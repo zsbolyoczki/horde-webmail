@@ -100,6 +100,8 @@ Log in with one of the admin users configured above.
 ```
 pear install -a -B horde/imp
 /usr/bin/horde-db-migrate imp
+
+chown www-data:www-data INSTALLDIR/horde/imp -R
 ```
 
 Open http://SERVERNAME.FQDN/horde/admin/config/config.php?app=imp
