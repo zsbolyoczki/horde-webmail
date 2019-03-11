@@ -129,6 +129,9 @@ echo ");" >> backends.local.php
 chown www-data:www-data INSTALLDIR/horde/imp -R
 ```
 
+To turn on inline HTML display in emails set ``'inline' => true,`` in mime_drivers.php
+
+
 ## Install Kronolith (calendar)
 
 ### Install Kronolith
@@ -138,6 +141,13 @@ pear install -a horde/kronolith
 cd INSTALLDIR/horde
 chown www-data:www-data kronolith -R
 ```
+
+Add UTF/emoji support to Kronolith
+```
+mysql -u horde_user -p horde_db
+alter table kronolith_events convert to CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
 
 Open http://SERVERNAME.FQDN/horde/admin/config/config.php?app=horde
 
